@@ -57,7 +57,7 @@ TaskFlow-Pro/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/taskflow-pro.git
+git clone https://github.com/Shreyansh063/taskflow-pro.git
 ```
 
 ### 2. Open Project Folder

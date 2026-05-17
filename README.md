@@ -91,16 +91,16 @@ TaskFlow Pro provides:
 * Productivity-focused design
 
 * ### 🖥️ Dark Mode Dashboard
-![Dark Mode](./Screenshot(100).png)
+![Dark Mode](Screenshot(100).png)
 
 ### 🌙 Light Mode
-![Light Mode](./Screenshot(101).png)
+![Light Mode](Screenshot(101).png)
 
 ### ✅ Task Management
-![Tasks](./Screenshot(102).png)
+![Tasks](Screenshot(102).png)
 
 ### 📊 Progress & Stats
-![Stats](./Screenshot(103).png)
+![Stats](Screenshot(103).png)
 
 ---
 

@@ -1,0 +1,345 @@
+:root {
+  --bg: #0f172a;
+  --card: rgba(255,255,255,0.08);
+  --text: white;
+  --input: rgba(255,255,255,0.1);
+  --border: rgba(255,255,255,0.15);
+}
+
+body.light-mode {
+  --bg: #eef2ff;
+  --card: rgba(255,255,255,0.75);
+  --text: #111827;
+  --input: rgba(255,255,255,0.9);
+  --border: rgba(0,0,0,0.08);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+
+  min-height: 100vh;
+  overflow-x: hidden;
+
+  font-family: 'Poppins', sans-serif;
+  transition: 0.4s ease;
+}
+
+.background-blur {
+  position: fixed;
+  width: 450px;
+  height: 450px;
+  background: #8b5cf6;
+
+  filter: blur(150px);
+
+  top: -120px;
+  right: -120px;
+
+  opacity: 0.18;
+
+  z-index: -1;
+}
+
+button {
+  cursor: pointer;
+}
+
+.main-title {
+  font-size: 3rem;
+  font-weight: 800;
+}
+
+.subtitle {
+  opacity: 0.8;
+}
+
+.dashboard-card,
+.task-input-box,
+.glass-box,
+.task-card {
+
+  background: var(--card);
+
+  border: 1px solid var(--border);
+
+  color: var(--text);
+
+  backdrop-filter: blur(18px);
+
+  border-radius: 24px;
+
+  padding: 20px;
+
+  transition: 0.4s ease;
+}
+
+.dashboard-card h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.dashboard-card.success {
+  border-left: 5px solid #10b981;
+}
+
+.dashboard-card.warning {
+  border-left: 5px solid #f59e0b;
+}
+
+.custom-input {
+  background: var(--input);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.custom-input:focus {
+  box-shadow: none;
+  border-color: #8b5cf6;
+}
+
+.custom-input::placeholder {
+  color: rgba(255,255,255,0.7);
+}
+
+body,
+.dashboard-card,
+.task-card,
+.glass-box,
+.task-input-box,
+.custom-input {
+  transition: all 0.3s ease;
+}
+
+.add-btn {
+  background: linear-gradient(135deg, #7c3aed, #9333ea);
+  border: none;
+  border-radius: 16px;
+  color: white;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.add-btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-glass {
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: white;
+  padding: 12px 16px;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 52px;
+  height: 52px;
+
+  font-size: 20px;
+
+  transition: 0.3s ease;
+}
+
+.btn-glass:hover {
+  transform: translateY(-2px) scale(1.05);
+  background: rgba(255,255,255,0.22);
+}
+
+#themeToggle i {
+  pointer-events: none;
+}
+
+.filter-btn.active {
+  background: #8b5cf6;
+  color: white;
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.task-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  transition: 0.3s ease;
+}
+
+.task-card {
+  animation: fadeSlide 0.35s ease;
+}
+
+@keyframes fadeSlide {
+
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.task-card:hover {
+
+  transform: translateY(-6px) scale(1.01);
+
+  box-shadow:
+    0 15px 35px rgba(0,0,0,0.15);
+
+}
+
+.dashboard-card:hover,
+.glass-box:hover,
+.task-input-box:hover {
+
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 12px 30px rgba(0,0,0,0.12);
+}
+
+button:hover {
+  filter: brightness(1.05);
+}
+
+.task-info h5 {
+  font-weight: 700;
+}
+
+.task-info small {
+  opacity: 0.7;
+}
+
+.priority {
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.priority.low {
+  background: rgba(16,185,129,0.2);
+}
+
+.priority.medium {
+  background: rgba(245,158,11,0.2);
+}
+
+.priority.high {
+  background: rgba(239,68,68,0.2);
+}
+
+.task-actions button {
+  border: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 14px;
+  margin-left: 10px;
+}
+
+.complete-btn {
+  background: #10b981;
+  color: white;
+}
+
+.delete-btn {
+  background: #ef4444;
+  color: white;
+}
+
+.completed-task {
+  opacity: 0.6;
+  text-decoration: line-through;
+}
+
+.custom-progress {
+  height: 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.1);
+}
+
+.progress-bar {
+  border-radius: 999px;
+  background: linear-gradient(90deg,#7c3aed,#06b6d4);
+}
+
+.empty-state {
+  padding: 40px 20px;
+}
+
+.empty-state h4 {
+  font-weight: 700;
+  margin-top: 20px;
+}
+
+.empty-state p {
+  opacity: 0.75;
+  max-width: 400px;
+  margin: auto;
+}
+
+.empty-state img {
+  width: 160px;
+  opacity: 0.8;
+}
+
+.custom-toast {
+  background: rgba(17,24,39,0.95);
+  color: white;
+  border-radius: 16px;
+}
+
+@media(max-width:768px){
+
+  .main-title {
+    font-size: 2.2rem;
+  }
+
+  .task-card {
+    align-items: flex-start;
+  }
+
+}
+
+/* LIGHT MODE FIXES */
+
+body.light-mode .btn-glass {
+  background: rgba(255,255,255,0.8);
+  color: #111827;
+}
+
+body.light-mode .custom-input {
+  color: #111827;
+}
+
+body.light-mode .custom-input::placeholder {
+  color: #6b7280;
+}
+
+body.light-mode .glass-box,
+body.light-mode .task-input-box,
+body.light-mode .dashboard-card,
+body.light-mode .task-card {
+  color: #111827;
+}
+
+body.light-mode .badge.bg-dark {
+  background: #d1d5db !important;
+  color: #111827 !important;
+}
+
+body.light-mode .custom-toast {
+  background: white;
+  color: black;
+}

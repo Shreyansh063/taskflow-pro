@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TaskFlow Pro</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- AOS Animation -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+
+  <!-- SortableJS -->
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
+
+  <!-- Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <div class="background-blur"></div>
+
+  <div class="container py-5">
+
+    <!-- Header -->
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4">
+      <div>
+        <h1 class="main-title">TaskFlow Pro</h1>
+        <p class="subtitle">Organize your day beautifully.</p>
+      </div>
+
+      <button id="themeToggle" class="btn btn-glass">
+        <i class="bi bi-moon-stars-fill"></i>
+      </button>
+    </div>
+
+    <!-- Dashboard -->
+    <div class="row g-4 mb-4">
+
+      <div class="col-md-4">
+        <div class="dashboard-card">
+          <h6>Total Tasks</h6>
+          <h2 id="totalTasks">0</h2>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="dashboard-card success">
+          <h6>Completed</h6>
+          <h2 id="completedTasks">0</h2>
+        </div>
+      </div>
+      <div class="col-md-4">
+      <div class="dashboard-card warning">
+        <h6>Pending</h6>
+        <h2 id="pendingTasks">0</h2>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Add Task -->
+  <div class="task-input-box mb-4">
+
+    <div class="row g-3">
+
+      <div class="col-lg-4">
+        <input type="text" id="taskInput" class="form-control custom-input" placeholder="Enter your task">
+      </div>
+
+      <div class="col-lg-2">
+        <select id="priorityInput" class="form-select custom-input">
+          <option value="Low">Low Priority</option>
+          <option value="Medium">Medium Priority</option>
+          <option value="High">High Priority</option>
+        </select>
+      </div>
+
+      <div class="col-lg-2">
+        <select id="categoryInput" class="form-select custom-input">
+          <option value="Personal">Personal</option>
+          <option value="Work">Work</option>
+          <option value="Study">Study</option>
+          <option value="Health">Health</option>
+        </select>
+      </div>
+
+      <div class="col-lg-2">
+        <input type="date" id="dateInput" class="form-control custom-input">
+      </div>
+
+      <div class="col-lg-2 d-grid">
+        <button id="addTaskBtn" class="btn add-btn">
+          <i class="bi bi-plus-circle-fill"></i> Add Task
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Search and Filters -->
+  <div class="glass-box mb-4">
+
+    <div class="row g-3 align-items-center">
+
+      <div class="col-md-6">
+        <input type="text" id="searchInput" class="form-control custom-input" placeholder="Search tasks...">
+      </div>
+
+      <div class="col-md-6 text-md-end">
+        <div class="btn-group flex-wrap">
+          <button class="btn filter-btn active" data-filter="all">All</button>
+          <button class="btn filter-btn" data-filter="completed">Completed</button>
+          <button class="btn filter-btn" data-filter="pending">Pending</button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Progress -->
+  <div class="glass-box mb-4">
+    <div class="d-flex justify-content-between mb-2">
+      <span>Daily Progress</span>
+      <span id="progressText">0%</span>
+    </div>
+
+    <div class="progress custom-progress">
+      <div id="progressBar" class="progress-bar"></div>
+    </div>
+  </div>
+
+  <!-- Task List -->
+  <div id="taskList" class="task-list"></div>
+
+  <!-- Empty State -->
+  <div id="emptyState" class="empty-state text-center mt-5">
+    <img src="https://cdn-icons-png.flaticon.com/512/4076/4076478.png" alt="empty">
+    <h4>Ready to conquer your day?</h4>
+
+    <p>
+      Add your first task and turn chaos into clarity ✨
+    </p>
+    
+    <button class="btn add-btn mt-3">
+      Start Planning
+    </button>
+
+  </div>
+
+  </div>
+
+  <!-- Toast -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="liveToast" class="toast custom-toast" role="alert">
+      <div class="toast-body" id="toastMessage">
+        Task Added!
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="scripts.js"></script>
+
+</body>
+
+</html>
